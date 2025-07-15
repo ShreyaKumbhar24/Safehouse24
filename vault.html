@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Your Digital Vault - SafeHouse24</title>
+    <style>
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('images/bg2.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ccc;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f111c;
+            padding: 15px 30px;
+            border-bottom: 1px solid #222;
+        }
+
+        header .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #71a4ff;
+        }
+        
+        header nav {
+        display: flex;
+        align-items: center;
+        gap: 25px; /* spacing between links and icon */
+        }
+
+        header nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 17px;
+            line-height: 3; /* ensures text doesn't shift vertically */
+
+
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        header .profile-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+            background-size: cover;
+            background-position: center;
+            display: inline-block;
+        }
+
+        .vault-container {
+            background-color: #1b1d2b;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 90%;
+            margin: 50px auto;
+            border-top: 4px solid #1b6e6e;
+        }
+
+        .vault-container h1 {
+            color: #717CFF;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .vault-container hr {
+            border: none;
+            border-top: 2px solid #1b6e6e;
+            margin: 10px 0 20px;
+        }
+
+        .vault-container p {
+            margin-bottom: 25px;
+            color: #aaa;
+        }
+
+        .vault-input {
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .vault-input input {
+            flex: 1;
+            padding: 20px;
+            font-size: 16px;
+            background-color: #0f101a;
+            color: #ccc;
+            border: 2px solid #333;
+            border-radius: 10px 0 0 10px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .vault-input button {
+            background-color: #717CFF;
+            color: white;
+            border: none;
+            padding: 0 30px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 0 10px 10px 0;
+            font-size: 16px;
+        }
+
+        .vault-note {
+            font-style: italic;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .vault-note i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SafeHouse24</div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#Notes">Notes</a>
+            <a href="#Settings">Settings</a>
+            <div class="profile-icon"></div>
+        </nav>
+    </header>
+
+    <div class="vault-container">
+        <h1>Access Your Digital Vault</h1>
+        <hr>
+        <p>Create or access your encrypted notes instantly.</p>
+        <div class="vault-input">
+            <input type="text" placeholder="your-secret-vault-name">
+            <button>&gt;_ Decrypt</button>
+        </div>
+        <p class="vault-note"><i>ⓘ</i> Or type directly in your address bar: <em>securenote.online/your-secret-vault-name</em></p>
+    </div>
+</body>
+</html>
