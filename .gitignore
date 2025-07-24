@@ -1,24 +1,62 @@
-# Compiled class file
+# ----------------------
+# Java Class Files
+# ----------------------
 *.class
 
-# Log file
+# ----------------------
+# Log Files
+# ----------------------
 *.log
 
-# BlueJ files
-*.ctxt
+# ----------------------
+# Sensitive Files (Security)
+# ----------------------
+smtp.properties
+twilio.properties
+userdata.txt
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# ----------------------
+# IDE Configurations
+# VS Code
+.vscode/
 
-# Package Files #
+# Eclipse
+*.iml
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea/
+*.iws
+*.ipr
+
+# ----------------------
+# Build Output
+# ----------------------
+target/
+build/
+out/
+
+# ----------------------
+# Package Files
+# ----------------------
 *.jar
 *.war
-*.nar
 *.ear
+*.nar
 *.zip
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# ----------------------
+# OS/Tool Specific
+# ----------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Crash Logs
+# ----------------------
 hs_err_pid*
 replay_pid*
