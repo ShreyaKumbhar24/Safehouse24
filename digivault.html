@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Digital Vault - SafeHouse24</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #eee;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #71a4ff;
+    }
+    .vault-name {
+      font-size: 20px;
+      margin: 20px 30px;
+      color: #71a4ff;
+    }
+    .vault-content {
+      margin: 20px 30px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #71a4ff;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    .item-list {
+      list-style: none;
+      padding: 0;
+    }
+    .item-list li {
+      background-color: #222;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .item-list li button {
+      background-color: #444;
+      border: none;
+      color: #eee;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .item-list li button:hover {
+      background-color: #71a4ff;
+    }
+    .add-item {
+      margin-top: 10px;
+    }
+    .add-item input, .add-item textarea {
+      width: 70%;
+      padding: 8px;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background-color: #222;
+      color: #eee;
+      font-size: 14px;
+    }
+    .add-item button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #71a4ff;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .add-item button:hover {
+      background-color: #5599ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SafeHouse24</div>
+    <div class="user-info">Welcome, <span id="vaultName">User</span></div>
+  </header>
+
+  <div class="vault-name">
+    Secure Vault: <span id="secureVaultName"></span>
+  </div>
+
+  <div class="vault-content">
+    <div class="section" id="notesSection">
+      <h2>Notes</h2>
+      <ul class="item-list" id="notesList"></ul>
+      <div class="add-item">
+        <textarea id="newNoteContent" placeholder="Add a new note..."></textarea>
+        <button onclick="addNote()">Add Note</button>
+      </div>
+    </div>
+
+    <div class="section" id="passwordsSection">
+      <h2>Passwords</h2>
+      <ul class="item-list" id="passwordsList"></ul>
+      <div class="add-item">
+        <input type="text" id="newPasswordLabel" placeholder="Label" />
+        <input type="password" id="newPasswordValue" placeholder="Password" />
+        <button onclick="addPassword()">Add Password</button>
+      </div>
+    </div>
+
+    <!-- Additional sections for images, documents can be added similarly -->
+
+  </div>
+
+  <script>
+    // Placeholder data structure for vault items
+    let vaultData = {
+      notes: [],
+      passwords: []
+    };
+
+    // Load vault name from session or URL (to be implemented)
+    const vaultName = sessionStorage.getItem('vaultName') || 'Unknown Vault';
+    document.getElementById('secureVaultName').textContent = vaultName;
+    document.getElementById('vaultName').textContent = vaultName;
+
+    // Functions to render lists
+    function renderNotes() {
+      const notesList = document.getElementById('notesList');
+      notesList.innerHTML = '';
+      vaultData.notes.forEach((note, index) => {
+        const li = document.createElement('li');
+        li.textContent = note;
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.onclick = () => {
+          vaultData.notes.splice(index, 1);
+          renderNotes();
+        };
+        li.appendChild(delBtn);
+        notesList.appendChild(li);
+      });
+    }
+
+    function renderPasswords() {
+      const passwordsList = document.getElementById('passwordsList');
+      passwordsList.innerHTML = '';
+      vaultData.passwords.forEach((entry, index) => {
+        const li = document.createElement('li');
+        li.textContent = entry.label + ': ' + '*'.repeat(entry.value.length);
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.onclick = () => {
+          vaultData.passwords.splice(index, 1);
+          renderPasswords();
+        };
+        li.appendChild(delBtn);
+        passwordsList.appendChild(li);
+      });
+    }
+
+    // Functions to add items
+    function addNote() {
+      const newNoteContent = document.getElementById('newNoteContent').value.trim();
+      if (newNoteContent) {
+        vaultData.notes.push(newNoteContent);
+        document.getElementById('newNoteContent').value = '';
+        renderNotes();
+      }
+    }
+
+    function addPassword() {
+      const label = document.getElementById('newPasswordLabel').value.trim();
+      const value = document.getElementById('newPasswordValue').value.trim();
+      if (label && value) {
+        vaultData.passwords.push({ label, value });
+        document.getElementById('newPasswordLabel').value = '';
+        document.getElementById('newPasswordValue').value = '';
+        renderPasswords();
+      }
+    }
+
+    // Initial render
+    renderNotes();
+    renderPasswords();
+  </script>
+</body>
+</html>

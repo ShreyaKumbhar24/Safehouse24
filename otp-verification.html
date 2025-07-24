@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OTP Verification - SafeHouse24</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #243b55;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .otp-container {
+      background-color: #2e3a59;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      width: 320px;
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="otp-container">
+    <h2>Verify Your Account</h2>
+    <p>Please enter the OTP sent to your email or phone.</p>
+    <form id="otp-form">
+      <input type="text" name="otp" placeholder="Enter OTP" required />
+      <button type="submit" id="verify-btn">Verify</button>
+    </form>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("otp-form");
+      const button = document.getElementById("verify-btn");
+
+      // Extract username from URL query parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const username = urlParams.get('username');
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        button.disabled = true;
+
+        const otp = form.otp.value.trim();
+
+        const formData = new URLSearchParams();
+        formData.append("username", username);
+        formData.append("otp", otp);
+
+        fetch("http://localhost:9090/demo/verify-otp", {
+          method: "POST",
+          mode: "cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formData
+        })
+        .then(res => {
+          if (!res.ok) {
+            return res.text().then(msg => { throw new Error(msg); });
+          }
+          return res.text();
+        })
+.then(data => {
+  alert(data); // "Verification successful"
+  window.location.href = "index.html";
+})
+        .catch(error => {
+          console.error("Verification failed:", error.message);
+          alert("Verification failed: " + error.message);
+        })
+        .finally(() => {
+          button.disabled = false;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

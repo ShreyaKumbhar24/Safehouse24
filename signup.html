@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up - SafeHouse24</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('images/bg.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .signup-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      width: 320px;
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #243b55;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    a {
+      font-size: 0.9em;
+      color: #555;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Create Account</h2>
+    <form id="signup-form">
+      <input type="text" name="username" placeholder="New Username" required />
+      <input type="password" name="password" placeholder="New Password" required />
+      <input type="password" name="confirm" placeholder="Confirm Password" required />
+      <input type="text" name="vaultname" placeholder="Secret Vault Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" />
+      <button type="submit" id="signup-btn">Sign Up</button>
+    </form>
+    <p><a href="login.html">Already have an account? Log in</a></p>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("signup-form");
+      const button = document.getElementById("signup-btn");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        button.disabled = true;
+
+        const username = form.username.value.trim();
+        const password = form.password.value.trim();
+        const confirm = form.confirm.value.trim();
+        const vaultname = form.vaultname.value.trim();
+
+        const formData = new URLSearchParams();
+        formData.append("username", username);
+        formData.append("password", password);
+        formData.append("confirm", confirm);
+        formData.append("vaultname", vaultname);
+        formData.append("email", form.email.value.trim());
+        formData.append("phone", form.phone.value.trim());
+
+        fetch("http://localhost:9090/demo/signup", {
+          method: "POST",
+          mode: "cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formData
+        })
+        .then(res => {
+          if (!res.ok) {
+            return res.text().then(msg => { throw new Error(msg); });
+          }
+          return res.text();
+        })
+        .then(data => {
+          alert(data); // "Signup successful"
+          // Redirect to OTP verification page or show OTP input UI here
+          window.location.href = "otp-verification.html?username=" + encodeURIComponent(username);
+        })
+        .catch(error => {
+          console.error("Signup failed:", error.message);
+          alert("Signup failed: " + error.message);
+        })
+        .finally(() => {
+          button.disabled = false;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Access Your Digital Vault - SafeHouse24</title>
     <style>
-
         body {
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
@@ -13,7 +12,6 @@
             background-size: cover;
             color: #ccc;
         }
-
         body::before {
             content: "";
             position: fixed;
@@ -21,7 +19,6 @@
             background-color: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
-
         header {
             display: flex;
             justify-content: space-between;
@@ -30,32 +27,25 @@
             padding: 15px 30px;
             border-bottom: 1px solid #222;
         }
-
         header .logo {
             font-size: 22px;
             font-weight: bold;
             color: #71a4ff;
         }
-        
         header nav {
-        display: flex;
-        align-items: center;
-        gap: 25px; /* spacing between links and icon */
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
-
         header nav a {
             color: #ccc;
             text-decoration: none;
             font-size: 17px;
-            line-height: 3; /* ensures text doesn't shift vertically */
-
-
+            line-height: 3;
         }
-
         header nav a:hover {
             text-decoration: underline;
         }
-
         header .profile-icon {
             width: 45px;
             height: 45px;
@@ -65,7 +55,6 @@
             background-position: center;
             display: inline-block;
         }
-
         .vault-container {
             background-color: #1b1d2b;
             padding: 60px;
@@ -76,30 +65,25 @@
             margin: 50px auto;
             border-top: 4px solid #1b6e6e;
         }
-
         .vault-container h1 {
             color: #717CFF;
             font-size: 32px;
             margin-bottom: 10px;
         }
-
         .vault-container hr {
             border: none;
             border-top: 2px solid #1b6e6e;
             margin: 10px 0 20px;
         }
-
         .vault-container p {
             margin-bottom: 25px;
             color: #aaa;
         }
-
         .vault-input {
             display: flex;
             width: 100%;
             margin-bottom: 20px;
         }
-
         .vault-input input {
             flex: 1;
             padding: 20px;
@@ -110,7 +94,6 @@
             border-radius: 10px 0 0 10px;
             font-family: 'Courier New', monospace;
         }
-
         .vault-input button {
             background-color: #717CFF;
             color: white;
@@ -121,13 +104,11 @@
             border-radius: 0 10px 10px 0;
             font-size: 16px;
         }
-
         .vault-note {
             font-style: italic;
             color: #999;
             font-size: 14px;
         }
-
         .vault-note i {
             margin-right: 5px;
         }
@@ -143,16 +124,28 @@
             <div class="profile-icon"></div>
         </nav>
     </header>
-
     <div class="vault-container">
         <h1>Access Your Digital Vault</h1>
-        <hr>
+        <hr />
         <p>Create or access your encrypted notes instantly.</p>
         <div class="vault-input">
-            <input type="text" placeholder="your-secret-vault-name">
-            <button>&gt;_ Decrypt</button>
+            <input type="text" id="vaultNameInput" placeholder="your-secret-vault-name" />
+            <button id="decryptBtn">>_ Decrypt</button>
         </div>
-        <p class="vault-note"><i>ⓘ</i> Or type directly in your address bar: <em>securenote.online/your-secret-vault-name</em></p>
+        <p class="vault-note">
+            <i>ⓘ</i> Or type directly in your address bar: <em>securenote.online/your-secret-vault-name</em>
+        </p>
     </div>
+    <script>
+        document.getElementById('decryptBtn').addEventListener('click', function () {
+            const vaultName = document.getElementById('vaultNameInput').value.trim();
+            if (vaultName) {
+                sessionStorage.setItem('vaultName', vaultName);
+                window.location.href = 'digivault.html';
+            } else {
+                alert('Please enter your secret vault name.');
+            }
+        });
+    </script>
 </body>
 </html>
