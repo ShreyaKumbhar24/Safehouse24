@@ -1,4 +1,4 @@
-# Project Report: SafeHouse24 Digital Vault
+# SafeHouse24 Digital Vault
 
 ## Introduction
 
