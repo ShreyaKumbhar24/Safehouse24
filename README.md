@@ -46,22 +46,34 @@ The primary goals of this project include:
 - CI integration using **Travis CI**
 
 <img width="1604" height="784" alt="image" src="https://github.com/user-attachments/assets/6a6777ea-a2e2-40aa-bfb7-3a15e860e2ce" />
+
+
 This is the user registration interface where new users can sign up by entering their credentials, email, phone number, and vault name. The form ensures data validation before submission, enabling account creation securely.
 
 <img width="1604" height="795" alt="image" src="https://github.com/user-attachments/assets/7260c579-37d4-47c1-a5de-15573c12109b" />
 <img width="1604" height="627" alt="image" src="https://github.com/user-attachments/assets/ffae7722-0dd4-47ce-a227-269ac61973ec" />
+
+
 Once a user registers, a One-Time Password (OTP) is generated and sent to their registered email address for verification. This ensures secure authentication and prevents unauthorized access.
 
 <img width="1604" height="822" alt="image" src="https://github.com/user-attachments/assets/3fb97370-10c0-4395-91e9-00fff535e222" />
+
+
 This is the login page where users access the application by entering their username and password. It provides links for account registration and password recovery, ensuring easy access management.
 
 <img width="1604" height="791" alt="image" src="https://github.com/user-attachments/assets/98ef991e-10ab-47aa-9c4a-e1bc7f0b249b" />
+
+
 After logging in, users are prompted to enter their secret vault name. This adds a secondary layer of security. Upon successful input, the user gains access to their encrypted digital vault.
 
 <img width="1604" height="834" alt="image" src="https://github.com/user-attachments/assets/cfaa6439-c658-4273-bfb1-4ebfa6bdf15f" />
+
+
 This is the main vault dashboard where users can securely add, view, and manage encrypted notes, images, pdf and stored passwords. The clean UI promotes usability while safeguarding sensitive data.
 
- Conclusion
+
+
+##Conclusion:
 SafeHouse24 is a secure, scalable, and user-centric web application built with modern Java technologies. It not only provides users with a protected digital space for sensitive information but also incorporates key principles of cybersecurity including multi-step authentication, encrypted storage, and safe session handling. With intuitive design and practical features, it’s a great solution for personal data management in today’s digital age.
 
 Future scope includes:
