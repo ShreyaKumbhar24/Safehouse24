@@ -86,8 +86,8 @@ Advanced vault categories (documents, media, etc.)
 
 Mobile-responsive UI using frameworks like Bootstrap
 
-Author
-Shreya Kumbhar
+## Author:
+ Shreya Kumbhar
  Milwaukee, WI |  Software Engineer |  MS in Computer Science
  LinkedIn |  shreyaaa024@gmail.com
 
