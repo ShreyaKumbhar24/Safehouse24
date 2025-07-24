@@ -73,7 +73,7 @@ This is the main vault dashboard where users can securely add, view, and manage 
 
 
 
-##Conclusion:
+##  Conclusion
 SafeHouse24 is a secure, scalable, and user-centric web application built with modern Java technologies. It not only provides users with a protected digital space for sensitive information but also incorporates key principles of cybersecurity including multi-step authentication, encrypted storage, and safe session handling. With intuitive design and practical features, it’s a great solution for personal data management in today’s digital age.
 
 Future scope includes:
