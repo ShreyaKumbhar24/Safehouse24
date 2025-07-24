@@ -1,4 +1,4 @@
-# SafeHouse24 Digital Vault
+# SafeHouse24 
 
 ## Introduction
 
