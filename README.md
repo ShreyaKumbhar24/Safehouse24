@@ -13,15 +13,15 @@ The primary goals of this project include:
 - Ensuring secure session management and data handling throughout the application.
 - Delivering a responsive and intuitive user interface for an optimal user experience.
 
-##  Features Implementation
+## Features Implementation
 
-###  User Registration and Login
+### User Registration and Login
 
 - SHA-256 password hashing
 - Email-based OTP verification
 - Secure validation and storage of user data
 
-###  Digital Vault
+### Digital Vault
 
 - Access vault using a private vault name
 - Create, edit, and delete notes/passwords
@@ -37,7 +37,7 @@ The primary goals of this project include:
 
 ---
 
-##  Testing
+## Testing
 
 - Unit Testing using **JUnit** and **Mockito**
 - Black-box testing of login, OTP, and vault flows
@@ -45,50 +45,53 @@ The primary goals of this project include:
 - Static code analysis with **Coverity Scan**
 - CI integration using **Travis CI**
 
-<img width="1604" height="784" alt="image" src="https://github.com/user-attachments/assets/6a6777ea-a2e2-40aa-bfb7-3a15e860e2ce" />
+---
 
+### User Registration Interface
 
-This is the user registration interface where new users can sign up by entering their credentials, email, phone number, and vault name. The form ensures data validation before submission, enabling account creation securely.
+![User Registration](https://github.com/user-attachments/assets/6a6777ea-a2e2-40aa-bfb7-3a15e860e2ce)
 
-<img width="1604" height="795" alt="image" src="https://github.com/user-attachments/assets/7260c579-37d4-47c1-a5de-15573c12109b" />
-<img width="1604" height="627" alt="image" src="https://github.com/user-attachments/assets/ffae7722-0dd4-47ce-a227-269ac61973ec" />
+This interface allows new users to sign up by entering their credentials, email, phone number, and vault name. The form ensures data validation before submission, enabling secure account creation.
 
+### OTP Email Verification
 
-Once a user registers, a One-Time Password (OTP) is generated and sent to their registered email address for verification. This ensures secure authentication and prevents unauthorized access.
+![OTP Email](https://github.com/user-attachments/assets/7260c579-37d4-47c1-a5de-15573c12109b)
 
-<img width="1604" height="822" alt="image" src="https://github.com/user-attachments/assets/3fb97370-10c0-4395-91e9-00fff535e222" />
+Upon registration, a One-Time Password (OTP) is sent to the user's registered email for verification, ensuring secure authentication.
 
+### Login Page
 
-This is the login page where users access the application by entering their username and password. It provides links for account registration and password recovery, ensuring easy access management.
+![Login Page](https://github.com/user-attachments/assets/ffae7722-0dd4-47ce-a227-269ac61973ec)
 
-<img width="1604" height="791" alt="image" src="https://github.com/user-attachments/assets/98ef991e-10ab-47aa-9c4a-e1bc7f0b249b" />
+Users access the application by entering their username and password. Links for registration and password recovery are provided.
 
+### Vault Name Input
 
-After logging in, users are prompted to enter their secret vault name. This adds a secondary layer of security. Upon successful input, the user gains access to their encrypted digital vault.
+![Vault Name Input](https://github.com/user-attachments/assets/98ef991e-10ab-47aa-9c4a-e1bc7f0b249b)
 
-<img width="1604" height="834" alt="image" src="https://github.com/user-attachments/assets/cfaa6439-c658-4273-bfb1-4ebfa6bdf15f" />
+After login, users enter their secret vault name as a secondary security layer before accessing their encrypted digital vault.
 
+### Digital Vault Dashboard
 
-This is the main vault dashboard where users can securely add, view, and manage encrypted notes, images, pdf and stored passwords. The clean UI promotes usability while safeguarding sensitive data.
+![Digital Vault](https://github.com/user-attachments/assets/cfaa6439-c658-4273-bfb1-4ebfa6bdf15f)
 
+The main vault dashboard allows users to securely add, view, and manage encrypted notes, images, PDFs, and stored passwords. The clean UI promotes usability while safeguarding sensitive data.
 
+---
 
-##  Conclusion
-SafeHouse24 is a secure, scalable, and user-centric web application built with modern Java technologies. It not only provides users with a protected digital space for sensitive information but also incorporates key principles of cybersecurity including multi-step authentication, encrypted storage, and safe session handling. With intuitive design and practical features, it’s a great solution for personal data management in today’s digital age.
+## Conclusion
 
-Future scope includes:
+SafeHouse24 is a secure, scalable, and user-centric web application built with modern Java technologies. It provides users with a protected digital space for sensitive information and incorporates key cybersecurity principles including multi-step authentication, encrypted storage, and safe session handling. With an intuitive design and practical features, it offers a robust solution for personal data management in today’s digital age.
 
-End-to-end encryption for stored data
+Future enhancements include:
 
-Session timeout and inactivity logout
+- End-to-end encryption for stored data
+- Session timeout and inactivity logout
+- Advanced vault categories (documents, media, etc.)
+- Mobile-responsive UI using frameworks like Bootstrap
 
-Advanced vault categories (documents, media, etc.)
+## Author
 
-Mobile-responsive UI using frameworks like Bootstrap
-
-## Author:
- Shreya Kumbhar
- Milwaukee, WI |  Software Engineer |  MS in Computer Science
- LinkedIn |  shreyaaa024@gmail.com
-
-
+Shreya Kumbhar  
+Milwaukee, WI | Software Engineer | MS in Computer Science  
+[LinkedIn](https://www.linkedin.com/in/shreya-kumbhar) | shreyaaa024@gmail.com
